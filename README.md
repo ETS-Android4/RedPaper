@@ -30,10 +30,11 @@ This app is a 3rd Party Android Client for Reddit, which will allow users a clea
 
 **Required Must-have Stories**
 
+- [x] User can Post a Thread
 - [x] User logs in to access main page with posts
 - [x] User can Register for new Account
 - [ ] User picks what their favorite forum/ subreddit. 
-- [ ] USer have the ability to post and comment under subreddit. 
+- [ ] User have the ability to post and comment under subreddit. 
 - [ ] Profile pages for each user
 - [ ] Settings (Accesibility, Notification, General, etc.)
 
