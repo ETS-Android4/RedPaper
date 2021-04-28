@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigation"
+        />
 
     <Button
         android:id="@+id/btn_logout"
@@ -18,30 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etPostTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        tools:text="Title" />
 
-    <EditText
-        android:id="@+id/etPostBody"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        tools:text="Body" />
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Publish"
-        />
-    <ImageView
-        android:id="@+id/ivPostImage"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        tools:srcCompat="@tools:sample/avatars"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
@@ -50,4 +34,4 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu_bottom_navigation" />
 
-</LinearLayout>
+</RelativeLayout>

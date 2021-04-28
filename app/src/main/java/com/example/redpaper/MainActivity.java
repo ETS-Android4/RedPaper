@@ -1,16 +1,22 @@
 package com.example.redpaper;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.redpaper.Fragments.ComposeFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -23,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
     private Button btnLogOut;
-    private Button btnSubmit;
-    private EditText etPostTitle;
-    private EditText etPostBody;
-    private ImageView ivPostImage;
+
+    final FragmentManager fragmentManager = getSupportFragmentManager();
+    private BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -35,27 +40,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnLogOut = findViewById(R.id.btn_logout);
-        etPostTitle = findViewById(R.id.etPostTitle);
-        etPostBody = findViewById(R.id.etPostBody);
-        btnSubmit = findViewById(R.id.btnSubmit);
-        ivPostImage = findViewById(R.id.ivPostImage);
 
-        queryPosts();
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
+
+        //queryPosts();
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                String title = etPostTitle.getText().toString();
-                String body = etPostBody.getText().toString();
-                if (body.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Body cannot be empty!", Toast.LENGTH_SHORT).show();
-                    return;
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment;
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        fragment = new ComposeFragment();
+                        break;
+                    case R.id.action_post:
+                        fragment = new ComposeFragment();
+                        break;
+                    case R.id.action_profile:
+                    default:
+                        fragment = new ComposeFragment();
+                        break;
                 }
-                if (title.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Title cannot be empty!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                savePost(title, body, currentUser);
+                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+                return true;
             }
         });
         btnLogOut.setOnClickListener(new View.OnClickListener() {
@@ -69,41 +76,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void savePost(String title, String body, ParseUser currentUser) {
-        Post post = new Post();
-        post.setTitle(title);
-        post.setDescription(body);
-        post.setUser(currentUser);
-        post.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e != null){
-                    Log.e(TAG, "Error while saving Post", e);
-                    Toast.makeText(MainActivity.this, "Error While Posting!", Toast.LENGTH_SHORT).show();
-                }
-                Log.i(TAG, "Post successfully saved!");
-                etPostBody.setText("");
-                etPostTitle.setText("");
-            }
-        });
-    }
 
-    private void queryPosts() {
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.KEY_USER);
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null){
-                    Log.e(TAG, "Issue with getting posts!", e);
-                    return;
-                }
-                for (Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getTitle() + " " + post.getDescription() + " Username: " + post.getUser().getUsername());
-                }
-            }
-        });
-    }
+
+
 
     private void goLoginActivity(){
             Intent i = new Intent(this, LoginActivity.class);
