@@ -23,13 +23,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        />
+        tools:text="Title" />
+
     <EditText
         android:id="@+id/etPostBody"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        />
+        tools:text="Body" />
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
