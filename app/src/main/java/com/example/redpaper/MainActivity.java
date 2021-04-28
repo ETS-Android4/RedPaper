@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.redpaper.Fragments.ComposeFragment;
+import com.example.redpaper.Fragments.PostFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
-                        fragment = new ComposeFragment();
+                        fragment = new PostFragment();
                         break;
                     case R.id.action_post:
                         fragment = new ComposeFragment();
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        bottomNavigationView.setSelectedItemId(R.id.action_home);
+
         btnLogOut.setOnClickListener(new View.OnClickListener() {
 
             @Override
