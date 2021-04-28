@@ -9,11 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.List;
 
@@ -39,6 +41,23 @@ public class MainActivity extends AppCompatActivity {
         ivPostImage = findViewById(R.id.ivPostImage);
 
         queryPosts();
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String title = etPostTitle.getText().toString();
+                String body = etPostBody.getText().toString();
+                if (body.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Body cannot be empty!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (title.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Title cannot be empty!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                savePost(title, body, currentUser);
+            }
+        });
         btnLogOut.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -46,6 +65,25 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Button Pressed for LogOut");
                 ParseUser.logOutInBackground();
                 goLoginActivity();
+            }
+        });
+    }
+
+    private void savePost(String title, String body, ParseUser currentUser) {
+        Post post = new Post();
+        post.setTitle(title);
+        post.setDescription(body);
+        post.setUser(currentUser);
+        post.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null){
+                    Log.e(TAG, "Error while saving Post", e);
+                    Toast.makeText(MainActivity.this, "Error While Posting!", Toast.LENGTH_SHORT).show();
+                }
+                Log.i(TAG, "Post successfully saved!");
+                etPostBody.setText("");
+                etPostTitle.setText("");
             }
         });
     }
