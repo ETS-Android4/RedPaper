@@ -6,6 +6,12 @@
     android:layout_margin="16dp"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@mipmap/ic_launcher_foreground" />
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
