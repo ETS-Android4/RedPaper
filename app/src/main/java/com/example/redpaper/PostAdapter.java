@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,6 +58,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private ImageView btnComments;
         private ImageView ivUpvotes;
         private ImageView ivDownvotes;
+        private boolean upvotebool = false;
+        private boolean downvotebool = false;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +71,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             btnComments = itemView.findViewById(R.id.ivComments);
             ivUpvotes = itemView.findViewById(R.id.ivUpvote);
             ivDownvotes = itemView.findViewById(R.id.ivDownvote);
+
         }
 
         public void bind(Post post) {
@@ -81,20 +85,40 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             ivUpvotes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (upvotebool == false){
                     post.increment("upvotes");
                     post.increment("downvotes", -1);
                     post.saveInBackground();
                     notifyDataSetChanged();
+                    upvotebool = true;
+                    }
+                    else{
+                        post.increment("upvotes", -1);
+                        post.increment("downvotes", +1);
+                        post.saveInBackground();
+                        notifyDataSetChanged();
+                        upvotebool = false;
+                    }
                 }
             });
 
             ivDownvotes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    post.increment("downvotes");
-                    post.increment("upvotes", -1);
-                    post.saveInBackground();
-                    notifyDataSetChanged();
+                    if(downvotebool == false) {
+                        post.increment("downvotes");
+                        post.increment("upvotes", -1);
+                        post.saveInBackground();
+                        notifyDataSetChanged();
+                        downvotebool = true;
+                    }
+                    else{
+                        post.increment("downvotes", -1);
+                        post.increment("upvotes", 1);
+                        post.saveInBackground();
+                        notifyDataSetChanged();
+                        downvotebool = false;
+                    }
                 }
             });
             }
