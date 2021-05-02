@@ -13,6 +13,25 @@ public class Post extends ParseObject {
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
     public static final String KEY_CREATED_KEY = "createdAt";
+    public static final String KEY_DOWNVOTES = "downvotes";
+    public static final String KEY_UPVOTES = "upvotes";
+
+
+    public int getDownvotes(){
+        return getInt(KEY_DOWNVOTES);
+    }
+
+    public void setDownvotes(int Downvotes){
+        put(KEY_DOWNVOTES,  Downvotes);
+    }
+
+    public int getUpvotes(){
+        return getInt(KEY_UPVOTES);
+    }
+
+    public void setUpvotes(int Upvotes){
+        put(KEY_UPVOTES, Upvotes);
+    }
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);

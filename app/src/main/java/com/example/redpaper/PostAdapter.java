@@ -49,18 +49,26 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tvUsername;
         private ImageView ivImage;
         private TextView tvDescription;
+        private TextView tvTitle;
+        private TextView tvUpvotes;
+        private TextView tvDownvotes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvUpvotes = itemView.findViewById(R.id.tvUpvote);
+            tvDownvotes = itemView.findViewById(R.id.tvDownvote);
         }
 
         public void bind(Post post) {
             //Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
-            ParseFile image = post.getImage();
+            tvTitle.setText(post.getTitle());
+            tvUpvotes.setText(String.valueOf(post.getUpvotes()));
+            tvDownvotes.setText(String.valueOf(post.getDownvotes()));
             }
         }
     }

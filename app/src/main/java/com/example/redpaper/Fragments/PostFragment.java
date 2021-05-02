@@ -13,6 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.redpaper.Post;
 import com.example.redpaper.PostAdapter;
@@ -32,6 +35,8 @@ public class PostFragment extends Fragment {
     private RecyclerView rvPosts;
     protected PostAdapter adapter;
     protected List<Post> allPosts;
+    private ImageView btnUpvote;
+    private ImageView btnDownvote;
 
 
     public PostFragment() {
@@ -45,6 +50,8 @@ public class PostFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_post, container, false);
+
+
     }
 
     @Override
@@ -56,10 +63,13 @@ public class PostFragment extends Fragment {
         adapter = new PostAdapter(getContext(), allPosts);
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+        btnUpvote = view.findViewById(R.id.ivUpvote);
+        btnDownvote = view.findViewById(R.id.ivDownvote);
 
         queryPosts();
 
     }
+
 
     protected void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
