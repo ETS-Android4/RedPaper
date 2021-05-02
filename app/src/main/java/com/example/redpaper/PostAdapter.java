@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     private Context context;
     private List<Post> posts;
+
 
     public PostAdapter(Context context, List<Post> posts){
         this.context = context;
@@ -52,6 +54,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView tvTitle;
         private TextView tvUpvotes;
         private TextView tvDownvotes;
+        private ImageView btnComments;
+        private ImageView ivUpvotes;
+        private ImageView ivDownvotes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +65,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvUpvotes = itemView.findViewById(R.id.tvUpvote);
             tvDownvotes = itemView.findViewById(R.id.tvDownvote);
+            btnComments = itemView.findViewById(R.id.ivComments);
+            ivUpvotes = itemView.findViewById(R.id.ivUpvote);
+            ivDownvotes = itemView.findViewById(R.id.ivDownvote);
         }
 
         public void bind(Post post) {
@@ -69,6 +77,26 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvTitle.setText(post.getTitle());
             tvUpvotes.setText(String.valueOf(post.getUpvotes()));
             tvDownvotes.setText(String.valueOf(post.getDownvotes()));
+
+            ivUpvotes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    post.increment("upvotes");
+                    post.increment("downvotes", -1);
+                    post.saveInBackground();
+                    notifyDataSetChanged();
+                }
+            });
+
+            ivDownvotes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    post.increment("downvotes");
+                    post.increment("upvotes", -1);
+                    post.saveInBackground();
+                    notifyDataSetChanged();
+                }
+            });
             }
         }
     }

@@ -1649,6 +1649,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_baseline_arrow_downward_24
 drawable ic_baseline_arrow_upward_24
+drawable ic_baseline_comment_24
 drawable ic_baseline_edit_24
 drawable ic_baseline_home_24
 drawable ic_baseline_person_24
@@ -1904,6 +1905,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id ivComments
 id ivDownvote
 id ivPostImage
 id ivUpvote

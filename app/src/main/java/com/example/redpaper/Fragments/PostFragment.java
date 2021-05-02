@@ -51,7 +51,6 @@ public class PostFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_post, container, false);
 
-
     }
 
     @Override
@@ -67,6 +66,8 @@ public class PostFragment extends Fragment {
         btnDownvote = view.findViewById(R.id.ivDownvote);
 
         queryPosts();
+
+
 
     }
 
@@ -88,6 +89,7 @@ public class PostFragment extends Fragment {
                 }
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
+
 
             }
         });
