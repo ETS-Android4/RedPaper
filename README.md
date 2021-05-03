@@ -3,7 +3,7 @@ Original App Design Project - README
 
 # RedPaper
 
-![me](https://github.com/CodePathRedditTeam/RedPaper/blob/main/Milestone%201.gif)
+![me](https://github.com/CodePathRedditTeam/RedPaper/blob/main/Milestone%203.gif)
 
 ## Table of Contents
 1. [Overview](#Overview)
@@ -34,8 +34,8 @@ This app is a 3rd Party Android Client for Reddit, which will allow users a clea
 - [x] User logs in to access main page with posts
 - [x] User can Register for new Account
 - [ ] User picks what their favorite forum/ subreddit. 
-- [ ] User have the ability to post and comment under subreddit. 
-- [ ] Profile pages for each user
+- [x] User have the ability to post and comment under subreddit. 
+- [x] Profile pages for each user
 - [ ] Settings (Accesibility, Notification, General, etc.)
 
 **Optional Nice-to-have Stories**
