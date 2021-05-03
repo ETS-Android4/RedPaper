@@ -10,13 +10,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ActionMenuView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.redpaper.Fragments.ComposeFragment;
 import com.example.redpaper.Fragments.PostFragment;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -29,10 +32,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
-    private Button btnLogOut;
+
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
+    private ImageButton topLogoutButton;
+
 
 
     @Override
@@ -40,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnLogOut = findViewById(R.id.btn_logout);
+
+
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
+        topLogoutButton = findViewById(R.id.btnLogout);
 
         //queryPosts();
 
@@ -68,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
         });
         bottomNavigationView.setSelectedItemId(R.id.action_home);
 
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
+
+
+        topLogoutButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
