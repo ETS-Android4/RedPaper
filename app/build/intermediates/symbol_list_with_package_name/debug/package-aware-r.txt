@@ -1679,6 +1679,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable exit_to_app
+drawable gradient
 drawable ic_baseline_arrow_downward_24
 drawable ic_baseline_arrow_upward_24
 drawable ic_baseline_comment_24
@@ -1879,7 +1880,6 @@ id disablePostScroll
 id disableScroll
 id disjoint
 id divider
-id divider2
 id dragDown
 id dragEnd
 id dragLeft
@@ -1892,6 +1892,7 @@ id easeInOut
 id easeOut
 id edit_query
 id elastic
+id emailError
 id end
 id endToStart
 id end_padder
@@ -2037,6 +2038,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id passError
 id password_toggle
 id path
 id pathRelative
@@ -2045,6 +2047,7 @@ id percent
 id pin
 id position
 id postLayout
+id profile
 id progress_circular
 id progress_horizontal
 id radio

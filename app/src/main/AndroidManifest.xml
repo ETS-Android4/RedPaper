@@ -17,12 +17,13 @@
         android:name=".ParseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_foreground"
-        android:label=""
+        android:label="RedPaper"
         android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RedPaper"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.RedPaper.NoActionBar">
         <activity android:name=".LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
