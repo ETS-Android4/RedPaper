@@ -7,11 +7,24 @@
     android:orientation="vertical"
     tools:context=".Fragments.ComposeFragment">
 
+    <Spinner
+        android:id="@+id/sp_subreddit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="?android:attr/listDivider" />
+
     <EditText
         android:id="@+id/etPostTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Give Your Post a Title!"
         tools:text="Title" />
 
     <EditText
@@ -19,17 +32,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Description"
         tools:text="Body" />
+
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Publish"
-        />
+        android:text="Post" />
+
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        tools:srcCompat="@tools:sample/avatars"/>
+        tools:srcCompat="@tools:sample/avatars" />
 
 </LinearLayout>

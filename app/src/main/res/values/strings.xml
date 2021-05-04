@@ -13,4 +13,12 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="subreddit_array">
+        <item>Select a Subreddit to Post</item>
+        <item>red/popular</item>
+        <item>red/movies</item>
+        <item>red/gaming</item>
+        <item>red/AskAnything</item>
+    </string-array>
 </resources>

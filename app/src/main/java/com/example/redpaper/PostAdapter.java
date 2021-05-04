@@ -21,6 +21,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     private Context context;
     private List<Post> posts;
+    public boolean upvotebool = false;
+    public boolean downvotebool = false;
 
 
     public PostAdapter(Context context, List<Post> posts){
@@ -58,8 +60,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private ImageView btnComments;
         private ImageView ivUpvotes;
         private ImageView ivDownvotes;
-        private boolean upvotebool = false;
-        private boolean downvotebool = false;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,9 +89,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     if (upvotebool == false){
                     post.increment("upvotes");
                     post.increment("downvotes", -1);
+                    upvotebool = true;
                     post.saveInBackground();
                     notifyDataSetChanged();
-                    upvotebool = true;
+
+
                     }
                     else{
                         post.increment("upvotes", -1);

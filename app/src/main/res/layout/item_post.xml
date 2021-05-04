@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:elevation="4dp"
+    android:background="@drawable/myrect">
 
     <TextView
         android:id="@+id/tvUsername"
@@ -77,5 +79,13 @@
         app:layout_constraintStart_toEndOf="@+id/tvDownvote"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription"
         app:srcCompat="@drawable/ic_baseline_comment_24" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDownvote" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,6 +61,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array subreddit_array
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1712,6 +1713,7 @@ drawable mtrl_ic_error
 drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
+drawable myrect
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -1876,6 +1878,8 @@ id disableHome
 id disablePostScroll
 id disableScroll
 id disjoint
+id divider
+id divider2
 id dragDown
 id dragEnd
 id dragLeft
@@ -2089,6 +2093,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sp_subreddit
 id spacer
 id spline
 id split_action_bar
