@@ -2262,6 +2262,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_compose
 layout fragment_post
+layout fragment_profile
 layout item_post
 layout material_chip_input_combo
 layout material_clock_display
