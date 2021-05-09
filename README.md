@@ -33,10 +33,9 @@ This app is a 3rd Party Android Client for Reddit, which will allow users a clea
 - [x] User can Post a Thread
 - [x] User logs in to access main page with posts
 - [x] User can Register for new Account
-- [ ] User picks what their favorite forum/ subreddit. 
 - [x] User have the ability to post and comment under subreddit. 
 - [x] Profile pages for each user
-- [ ] Settings (Accesibility, Notification, General, etc.)
+
 
 **Optional Nice-to-have Stories**
 
