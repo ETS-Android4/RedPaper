@@ -1,4 +1,4 @@
-Original App Design Project - README
+RedPaper - README
 ===
 
 # RedPaper
@@ -26,9 +26,7 @@ This app is a 3rd Party Android Client for Reddit, which will allow users a clea
 
 ## Product Spec
 
-### 1. User Stories (Required and Optional)
-
-**Required Must-have Stories**
+### 1. User Stories
 
 - [x] User can Post a Thread
 - [x] User logs in to access main page with posts
